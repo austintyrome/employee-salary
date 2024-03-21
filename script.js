@@ -1,39 +1,46 @@
-// Get a reference to the #add-employees-btn element
+
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
-addEmployeesBtn.addEventListener('click', collectEmployees);
-// Collect employee data
+
 const collectEmployees = function () {
-  // TODO: Get user input to create and return an array of employee objects
-  // I need to make prompts to enter employee names and salaries and put them into an array
-  //const employees = []
-  let employeeNames = window.prompt("Enter employee name");
+  
+  let addEmployee = true;
+
+  let employeesArray = []
+
+ while (addEmployee) {
+  let employeeFirst = window.prompt("Enter employee name");
   let employeeLast = window.prompt("Enter employee last name");
-  let employeeSalaries = window.prompt("Enter employee salary");
-  return
+  let employeeSalaries = window.prompt("Enter employee Salary");
+  const employee =  { firstName:  employeeFirst, lastName: employeeLast, salary: employeeSalaries}
+employeesArray.push(employee)
+  addEmployee = window.confirm("Would you like to add another employee?");
+}
+return employeesArray
 }
 
-// Display the average salary
 const displayAverageSalary = function (employeesArray) {
-  // TODO: Calculate and display the average salary
-  //this is to be done in the consoule and not on the page
-  //i need to take the saleries and find the average
-  function getAverage(employeesArray) {
+ 
+  function getAverage() {
     let sum = 0;
     for (let i = 0; i < employeesArray.length; i++) {
-      sum += employeesArray[i];
+      let convertNumber = Number(employeesArray[i].salary)
+      sum += convertNumber;
+
+
     }
     return sum / employeesArray.length;
   }
+  const averageSalary = getAverage()
+  console.log(averageSalary);
 }
 
-// Select a random employee
 const getRandomEmployee = function (employeesArray) {
 
   const index = Math.floor(Math.random() * employeesArray.length);
-  const randomName = employeesArray[index];
+  const randomEmployee = employeesArray[index];
+const employeeMonth = randomEmployee.firstName + randomEmployee.lastName
 
-
-  console.log(`Congradulations!! ${randomName} you are emploee of the month`);
+  console.log(`Congradulations!! ${employeeMonth} you are emplyoee of the month`);
 }
 
 /*
@@ -42,15 +49,15 @@ const getRandomEmployee = function (employeesArray) {
   Do not modify any of the code below this line:
 */
 
-// Display employee data in an HTML table
+
 const displayEmployees = function (employeesArray) {
-  // Get the employee table
+
   const employeeTable = document.querySelector('#employee-table');
 
-  // Clear the employee table
+  
   employeeTable.innerHTML = '';
 
-  // Loop through the employee data and create a row for each employee
+  
   for (let i = 0; i < employeesArray.length; i++) {
     const currentEmployee = employeesArray[i];
 
@@ -76,6 +83,8 @@ const displayEmployees = function (employeesArray) {
     employeeTable.append(newTableRow);
   }
 }
+
+
 
 const trackEmployeeData = function () {
   const employees = collectEmployees();
