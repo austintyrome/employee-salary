@@ -31,6 +31,10 @@ THEN my employee data is displayed on the page sorted alphabetically by last nam
 * **Austin Godfrey** - [austintyrome](https://github.com/austintyrome)
 
 
+## Links
+* **Employee-Salary** -[Employee-Salary](https://austintyrome.github.io/employee-salary/)
+* **Repo** -[Repo](https://github.com/austintyrome/employee-salary)
+
 ## Licenses
 
 ```
